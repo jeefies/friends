@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Happy Birthday</title>
+		<link src='https://pic.liesio.com/2020/12/19/0b2f3e2d69ec5.ico' rel="shortcut icon" type="imgae/x-icon">
+		<link src='https://pic.liesio.com/2020/12/19/0b2f3e2d69ec5.ico' rel="icon" type="imgae/x-icon">
+		<style type="text/css">
+:root {
+	--de : 0deg;
+}
+body {
+	transform-origin: center bottom;
+	transform-style: preserve-3d;
+}
+img.simg { width: 25em;
+	height: auto;
+	transform: rotate(var( --de)) translateZ(-80px) scale(1);
+}
+</style>
+	</head>
+	<body>
+		<div style="width: 30em">
+			<img class="simg" src="https://pic.liesio.com/2020/12/19/8ed3d1ac7a168.png" id="imgs">
+		</div>
+		<script>
+			var de = 0.1;
+			let imgs = document.getElementById('imgs');
+			function change() {
+				document.documentElement.style.setProperty('--de', `${de}deg`);
+				console.log(`${de}deg`);
+				de = de + 0.1;
+				setTimeout(() => {
+					change();
+					console.log('self calling');
+				}, 10)
+			};
+			console.log("setting");
+			change()
+//imgs.addEventListener("mouseenter", (event) => {
+//	change(event);
+//}, false);
+		</script>
+	</body>
+</html>

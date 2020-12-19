@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Happy Birthday</title>
+	</head>
+	<body>
+		<canvas id="drawing" width=500 height=500>Main page</canvas>
+<script>
+	let drawing = document.getElementById("drawing");
+	if (drawing.getContext) {
+		let context = drawing.getContext("2d");
+		console.log('canvas init');
+		context.strokeStyle = 'blue';
+		context.fillStyle = 'rgba(0,0,255,0.5)';
+		context.fillRect(10, 10, 100, 100);
+		context.fillStyle = 'red';
+		context.fillRect(50, 10, 100, 100);
+		context.lineWidth = "2";
+		context.lineCap = 'butt';
+		context.strokeRect(50, 60, 100, 100);
+		context.lineJoin = 'round';
+		context.lineCap = 'round';
+		context.strokeRect(100, 50, 100, 100);
+		// start draw lines
+		context.beginPath();
+		// posx, posy, width, ??startAngle, line length??endAngle, except choose
+		context.arc(50, 250, 50, 0.5 * Math.PI, 1.5 * Math.PI, true);
+		//  circle start with top
+		context.moveTo(250, 250)
+		context.arc(200, 250, 50, 0, (1.5 * Math.PI), false);
+
+		// final show
+		context.stroke()
+	} else {
+		alert("Not support Canvas");
+	}
+</script>
+	</body>
+</html>
